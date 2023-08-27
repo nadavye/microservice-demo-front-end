@@ -9,6 +9,7 @@
     , app       = express()
 
   app.get("/orders", function (req, res, next) {
+    console.log("~~~~~~~~~~~~~ NADAV WAS HERE ~~~~~~~~~~~~~");
     console.log("Request received with body: " + JSON.stringify(req.body));
     var logged_in = req.cookies.logged_in;
     if (!logged_in) {
