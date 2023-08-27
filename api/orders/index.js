@@ -42,11 +42,13 @@
   });
 
   app.get("/orders/*", function (req, res, next) {
+    console.log("~~~~~~~~~~~~~ NADAV WAS HERE (2) ~~~~~~~~~~~~~");
     var url = endpoints.ordersUrl + req.url.toString();
     request.get(url).pipe(res);
   });
 
   app.post("/orders", function(req, res, next) {
+     console.log("~~~~~~~~~~~~~ NADAV WAS HERE (3) ~~~~~~~~~~~~~");
     console.log("Request received with body: " + JSON.stringify(req.body));
     var logged_in = req.cookies.logged_in;
     if (!logged_in) {
