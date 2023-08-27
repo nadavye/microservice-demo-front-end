@@ -8,6 +8,13 @@
     , helpers   = require("../../helpers")
     , app       = express()
 
+  app.put("/orders/:orderId", function (req, res, next) {
+    console.log("~~~~~~~~~~~~~ NADAV Is Putting ~~~~~~~~~~~~~");
+    var url = endpoints.ordersUrl + req.url.toString();
+    console.log(`url: "${url}"`);
+    request.get(url).pipe(res);
+  });
+  
   app.get("/orders", function (req, res, next) {
     console.log("~~~~~~~~~~~~~ NADAV WAS HERE ~~~~~~~~~~~~~");
     console.log("Request received with body: " + JSON.stringify(req.body));
