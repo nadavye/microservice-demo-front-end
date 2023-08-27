@@ -12,7 +12,11 @@
     console.log("~~~~~~~~~~~~~ NADAV Is Putting ~~~~~~~~~~~~~");
     var url = endpoints.ordersUrl + req.url.toString();
     console.log(`url: "${url}"`);
-    request.get(url).pipe(res);
+    request({
+      method: "PUT",
+      uri: url,
+      json: req.body
+    }).pipe(res);
   });
   
   app.get("/orders", function (req, res, next) {
